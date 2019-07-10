@@ -52,4 +52,5 @@ SearchSize is the size of the optimization algorithm search group and n is the o
 When run the app, choose the "from file" option and run the optimizer.
 
 ![Alt text](OptimizationParams.png?raw=true "Pameters of SGA optimizer")
-![Alt text](FuntionParams.png?raw=true "Function configuration")
+
+![Alt text](FunctionParams.png?raw=true "Function configuration")
