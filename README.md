@@ -1,8 +1,9 @@
 # pysga
 A python adaptation to matlab Search Group Algorithm code
 
-The Search Group Algorithm (SGA) is a metaheuristic optimization method for nonlinear, nonconvex, nonsmooth, multimodal, bounded optimization problems. You may also find a tutorial in a pdf file, which is a step by step explanation about how to use the SGA code. The sections and equations cited in this file refer to the paper that presented the SGA: 
-M.S. Goncalves, R.H. Lopez, L.F.F. Miguel, “Search group algorithm: A new metaheuristic method for the optimization of truss structures”, Computers & Structures, 153:165-184, 2015. DOI: 0.1016/j.compstruc.2015.03.003
+The Search Group Algorithm (SGA) is a metaheuristic optimization method for nonlinear, nonconvex, nonsmooth, multimodal, bounded optimization problems. You may also find a tutorial in a pdf file, which is a step by step explanation about how to use the SGA code.
+The sections and equations cited in this file refer to the paper that presented the SGA:
+M.S. Gonçalves, R.H. Lopez, L.F.F. Miguel, “Search group algorithm: A new metaheuristic method for the optimization of truss structures”, Computers & Structures, 153:165-184, 2015. DOI: 0.1016/j.compstruc.2015.03.003
 This paper may also be download at Research Gate:
 
 https://www.researchgate.net/publication/274253521_Search_group_algorithm_A_new_metaheuristic_method_for_the_optimization_of_truss_structures
@@ -28,8 +29,7 @@ app = SearchGroupAlgorithmApp()
 app.run()
 ```
 
-Put a "fobj_function.py" file in current directory and define your objective function as "fobj" function.
-Example:
+Put a "fobj_function.py" file in current directory and define your objective function as "fobj" function. Example:
 
 ```python
 import numpy as np
@@ -65,8 +65,8 @@ It is really simple. Just import the module and then configure the SGA parameter
 import pysga
 
 
+# Define your fobj function:
 def my_fobj(x):
-    '''Define your fobj function'''
     pass
 
 
