@@ -4,8 +4,8 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
 
-import sga
-from configure import ParamsSGA, ObjectiveFunc
+from pysga import sga
+from pysga.configure import ParamsSGA, ObjectiveFunc
 
 
 class SGALayout(BoxLayout):
@@ -46,7 +46,7 @@ class SGALayout(BoxLayout):
         lowers = self.get_list('lowers')
         uppers = self.get_list('uppers')
         if self.get_from_file.active:
-            from fobj_function import fobj
+            from pysga.fobj_function import fobj
             fobj_func = fobj
         else:
             fobj_func = self.get_fobj_function()

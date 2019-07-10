@@ -1,9 +1,9 @@
 # coding: utf-8
 
 import numpy as np
-from family import Family
-from configure import ParamsSGA, ObjectiveFunc
-from tournament import Tournament
+from pysga.family import Family
+from pysga.configure import ParamsSGA, ObjectiveFunc
+from pysga.tournament import Tournament
 
 
 def leaders_indices(f, sga, tournament):
