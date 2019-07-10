@@ -3,7 +3,7 @@
 import os
 from setuptools import setup
 
-__version__ = '1.1'
+__version__ = '1.2.3'
 
 
 long_description = ''
@@ -30,7 +30,7 @@ setup(name='pysga',
           'Operating System :: OS Independent',
           'Topic :: Scientific/Engineering'],
       packages=['pysga'],
-      data_files=[('', ['pysga/searchgroupalgorithm.kv'])],
+      include_package_data=True,
       install_requires=['numpy'],
       extras_require={'full': ['docutils',
                                'pygments',
