@@ -13,14 +13,15 @@ http://www.sciencedirect.com/science/article/pii/S0045794915000851
 
 The m-files original codes is provide from https://www.mathworks.com/matlabcentral/fileexchange/50598-search-group-algorithm-matlab-code
 
-Requeriments:
-numpy (all)
-kivy (for app only)
+## Requeriments:
+* numpy (all)
+* kivy (for app only)
 
-App example:
-from pysga import SearchGroupAlgorithmApp
+## App example:
+```from pysga import SearchGroupAlgorithmApp
 from kivy.config import Config
 Config.set('graphics', 'width', '500')
 Config.set('graphics', 'height', '600')
 app = SearchGroupAlgorithmApp()
 app.run()
+```
