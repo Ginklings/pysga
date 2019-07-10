@@ -36,6 +36,8 @@ pip install pysga[full]
 
 This will install the kivy module and dependencies. For any error, consult de kivy documentation.
 
+ps: sometimes in enviromental ambient, the kivy kv-file is not loaded and the app crash. This is a bug that it will fix in future.
+
 ## App example:
 ```python
 from pysga.sgaApp import SearchGroupAlgorithmApp
