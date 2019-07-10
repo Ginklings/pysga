@@ -46,7 +46,10 @@ class SGALayout(BoxLayout):
         lowers = self.get_list('lowers')
         uppers = self.get_list('uppers')
         if self.get_from_file.active:
-            from pysga.fobj_function import fobj
+            try:
+                from fobj_function import fobj
+            except ImportError:
+                from pysga.fobj_function import fobj
             fobj_func = fobj
         else:
             fobj_func = self.get_fobj_function()
@@ -99,9 +102,9 @@ class SGALayout(BoxLayout):
             fobj_text = f.readlines()
             self.ids.fobj.text = ''.join(fobj_text)
         if value:
-            print('The checkbox', checkbox, 'is active')
+            pass
         else:
-            print('The checkbox', checkbox, 'is inactive')
+            pass
 
 
 class SearchGroupAlgorithmApp(App):
