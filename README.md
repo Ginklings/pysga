@@ -28,7 +28,8 @@ app = SearchGroupAlgorithmApp()
 app.run()
 ```
 
-Put a "fobj_function.py" file and define define your objective function as "fobj" function. Example:
+Put a "fobj_function.py" file in current directory and define your objective function as "fobj" function.
+Example:
 
 ```python
 import numpy as np
