@@ -14,12 +14,13 @@ http://www.sciencedirect.com/science/article/pii/S0045794915000851
 The m-files original codes is provide from https://www.mathworks.com/matlabcentral/fileexchange/50598-search-group-algorithm-matlab-code
 
 ## Requeriments:
+Actually is working in python 3.x. The following modules are necessary:
 * numpy (all)
 * kivy (for app only)
 
 ## App example:
 ```python
-from pysga import SearchGroupAlgorithmApp
+from pysga.sgaApp import SearchGroupAlgorithmApp
 from kivy.config import Config
 Config.set('graphics', 'width', '500')
 Config.set('graphics', 'height', '600')
@@ -54,3 +55,23 @@ When run the app, choose the "from file" option and run the optimizer.
 ![Alt text](OptimizationParams.png?raw=true "Pameters of SGA optimizer")
 
 ![Alt text](FunctionParams.png?raw=true "Function configuration")
+
+## Call SGA in python code:
+
+It is really simple. Just import the module and then configure the SGA parameters, the function and run:
+
+```python
+import pysga
+
+
+def my_fobj(x):
+    '''Define your fobj function'''
+    pass
+
+
+f = pysga.ObjectiveFunc(inf=my_inf, sup=mysup) # define your lower and upper bounds
+f.evaluate = my_fobj # overwrite evaluate with your objective function
+sga_params = pysga.ParamsSGA() # set the sga parameters, without setting the defaults values will be used
+x, y = pysga.run(sga=sga_params, fobj=f)
+print('The minimun value of the function is %s at point %s' % (y, x))
+```
