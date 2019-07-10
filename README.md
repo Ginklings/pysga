@@ -14,10 +14,27 @@ http://www.sciencedirect.com/science/article/pii/S0045794915000851
 
 The m-files original codes is provide from https://www.mathworks.com/matlabcentral/fileexchange/50598-search-group-algorithm-matlab-code
 
-## Requeriments:
+## Installation:
+
+### Requeriments:
 Actually is working in python 3.x. The following modules are necessary:
 * numpy (all)
 * kivy (for app only)
+
+### Install
+Use pip to install. For only the function without GUI App:
+```bash
+pip install pysga
+```
+
+This will install numpy if necessary.
+
+For GUI App:
+```bash
+pip install pysga[full]
+```
+
+This will install the kivy module and dependencies. For any error, consult de kivy documentation.
 
 ## App example:
 ```python
