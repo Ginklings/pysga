@@ -70,9 +70,20 @@ def my_fobj(x):
     pass
 
 
-f = pysga.ObjectiveFunc(inf=my_inf, sup=mysup) # define your lower and upper bounds
-f.evaluate = my_fobj # overwrite evaluate with your objective function
-sga_params = pysga.ParamsSGA() # set the sga parameters, without setting the defaults values will be used
+# define the objective function class with your lower and upper bounds:
+f = pysga.ObjectiveFunc(inf=my_inf, sup=mysup)
+
+# overwrite evaluate with your objective function:
+f.evaluate = my_fobj
+
+# set the sga parameters, without setting the defaults values will be used
+sga_params = pysga.ParamsSGA()
+
+# run the SGA optimization:
 x, y = pysga.run(sga=sga_params, fobj=f)
+
+# with SGA's defaults parameters you can hide the sga class:
+# x, y = pysga.run(fobj=f)
+
 print('The minimun value of the function is %s at point %s' % (y, x))
 ```
