@@ -4,7 +4,7 @@
 
 <SGALayout@BoxLayout>:
     orientation: h if root.width > root.height else v
-    resultado: resultado
+    result: result
     screen_manager: screen_manager
     get_from_file: get_from_file
     ScreenManager:
@@ -139,7 +139,7 @@
         size_hint_y: 1. if root.width > root.height else .3
         Label:
             size_hint_y: 0.88 if root.width > root.height else .73
-            id: resultado
+            id: result
             text_size: self.size
             halign: 'left'
             valign: 'top'
@@ -149,7 +149,7 @@
             size_hint_y: 0.1 if root.width > root.height else .3
             size_hint_x: .5
             text: 'Optimize!'
-            on_press: root.otimizar()
+            on_press: root.optimize()
         Label:
             size_hint_y: .02
 

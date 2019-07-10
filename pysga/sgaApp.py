@@ -3,28 +3,35 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
+from kivy.clock import Clock
+import os
 
 from pysga import sga
 from pysga.configure import ParamsSGA, ObjectiveFunc
 
 
-class SGALayout(BoxLayout):
+MODULE_DIR = os.path.dirname(__file__)
 
-    resultado = ObjectProperty()
+
+class SGALayout(BoxLayout):
+    result = ObjectProperty()
     screen_manager = ObjectProperty()
     get_from_file = ObjectProperty()
 
     def __init__(self, **kwargs):
         super(SGALayout, self).__init__(**kwargs)
+        Clock.schedule_once(self.binds_events)
+
+    def binds_events(self, e):
         self.get_from_file.bind(active=self.on_checkbox_active)
 
-    def otimizar(self):
+    def optimize(self):
         try:
             x, y = sga.run(sga=self.configure_sga(), fobj=self.configure_function())
             texto = '  Minimum point:\n  %s\n  Optimal value:\n  %s' % (str(x), str(y))
         except:
             texto = '  SGA Error\n  Verify parameters and objective function'
-        self.resultado.text = texto
+        self.result.text = texto
 
     def configure_sga(self):
         alfamin = float(self.ids['alfamin'].text)
@@ -98,13 +105,21 @@ class SGALayout(BoxLayout):
         return exec_code['fobj']
 
     def on_checkbox_active(self, checkbox, value):
-        with open('fobj_function.py', 'r') as f:
-            fobj_text = f.readlines()
-            self.ids.fobj.text = ''.join(fobj_text)
+        module_fobj_file = os.path.join(MODULE_DIR, 'fobj_function.py')
         if value:
-            pass
+            try:
+                with open('fobj_function.py', 'r') as f:
+                    fobj_text = f.readlines()
+                    self.ids.fobj.text = ''.join(fobj_text)
+            except FileNotFoundError:
+                with open(module_fobj_file, 'r') as f:
+                    fobj_text = f.readlines()
+                    self.ids.fobj.text = ''.join(fobj_text)
         else:
-            pass
+            self.ids.fobj.text = self.ids.fobj.text.replace('\n    ', '\n')
+            self.ids.fobj.text = self.ids.fobj.text.replace('def fobj(x):', '# def fobj(x):')
+            self.ids.fobj.text = self.ids.fobj.text.replace('import numpy as np', '# import numpy as np')
+            self.ids.fobj.text = self.ids.fobj.text.replace('return y', '# return y')
 
 
 class SearchGroupAlgorithmApp(App):
