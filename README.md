@@ -88,6 +88,7 @@ def my_fobj(x):
 
 
 # define the objective function class with your lower and upper bounds:
+# inf and sup should be a numpy array
 f = pysga.ObjectiveFunc(inf=my_inf, sup=mysup)
 
 # overwrite evaluate with your objective function:
